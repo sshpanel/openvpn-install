@@ -60,6 +60,7 @@ newclient () {
 }
 
 if [[ ! -d /opt/vpnpanel/b-agent/auth.sh ]] ; then 
+	clear
 	danger "The B-AGENT Service is not installed!"
 	info "You can install it by running command below"	
 	echo 
