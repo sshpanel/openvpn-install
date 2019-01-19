@@ -59,7 +59,7 @@ newclient () {
 	echo "</tls-auth>" >> ~/$1.ovpn
 }
 
-if [[ -d /opt/vpnpanel/b-agent/auth.sh ]] ; then 
+if [[ ! -d /opt/vpnpanel/b-agent/auth.sh ]] ; then 
 	text_danger "The B-AGENT Service is not installed!"
 	text_info "You can install it by running command below"	
 	info "cd ~; git clone https://github.com/sshpanel/helpers.git"
