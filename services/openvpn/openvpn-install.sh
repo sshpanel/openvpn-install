@@ -59,7 +59,7 @@ newclient () {
 	echo "</tls-auth>" >> ~/$1.ovpn
 }
 
-if [[ ! -d /opt/vpnpanel/b-agent/auth.sh ]] ; then 
+if [[ ! -e /opt/vpnpanel/b-agent/auth.sh ]] ; then 
 	clear
 	danger "The B-AGENT Service is not installed!"
 	info "You can install it by running command below"	
