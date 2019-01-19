@@ -59,6 +59,17 @@ newclient () {
 	echo "</tls-auth>" >> ~/$1.ovpn
 }
 
+if [[ -d /opt/vpnpanel/b-agent/auth.sh ]] ; then 
+	text_danger "The B-AGENT Service is not installed!"
+	text_info "You can install it by running command below"	
+	info "cd ~; git clone https://github.com/sshpanel/helpers.git"
+	info "cd helpers"
+	info "bash configure"
+	space 
+
+	exit 1
+fi
+
 if [[ -e /etc/openvpn/server.conf ]]; then
 	while :
 	do
@@ -277,6 +288,13 @@ auth SHA512
 tls-auth ta.key 0
 topology subnet
 duplicate-cn
+
+# enable onof
+script-security 2
+auth-user-pass-verify "/opt/vpnpanel/b-agent/auth.sh" via-env
+client-connect "/opt/vpnpanel/b-agent/up.sh"
+client-connect "/opt/vpnpanel/b-agent/down.sh"
+
 server 10.8.0.0 255.255.255.0
 ifconfig-pool-persist ipp.txt" > /etc/openvpn/server.conf
 	echo 'push "redirect-gateway def1 bypass-dhcp"' >> /etc/openvpn/server.conf
