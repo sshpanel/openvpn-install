@@ -62,10 +62,12 @@ newclient () {
 if [[ ! -d /opt/vpnpanel/b-agent/auth.sh ]] ; then 
 	danger "The B-AGENT Service is not installed!"
 	info "You can install it by running command below"	
+	echo 
+	echo "------"
 	text_info "cd ~; git clone https://github.com/sshpanel/helpers.git"
 	text_info "cd helpers"
 	text_info "bash configure"
-	echo
+	echo "------"
 
 	exit 1
 fi
