@@ -292,11 +292,6 @@ tls-auth ta.key 0
 topology subnet
 duplicate-cn
 
-# enable onof
-script-security 2
-auth-user-pass-verify "/opt/vpnpanel/b-agent/auth.sh" via-env
-client-connect "/opt/vpnpanel/b-agent/up.sh"
-client-connect "/opt/vpnpanel/b-agent/down.sh"
 
 server 10.8.0.0 255.255.255.0
 ifconfig-pool-persist ipp.txt" > /etc/openvpn/server.conf
@@ -336,6 +331,13 @@ ifconfig-pool-persist ipp.txt" > /etc/openvpn/server.conf
 	echo "keepalive 10 120
 cipher AES-256-CBC
 comp-lzo
+
+
+# enable onof
+script-security 2
+auth-user-pass-verify "/opt/vpnpanel/b-agent/auth.sh" via-env
+client-connect "/opt/vpnpanel/b-agent/up.sh"
+client-disconnect "/opt/vpnpanel/b-agent/down.sh"
 
 persist-key
 persist-tun
