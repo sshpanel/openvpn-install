@@ -335,7 +335,7 @@ comp-lzo
 
 # enable onof
 script-security 3 system
-auth-user-pass-verify "\"/opt/vpnpanel/b-agent/auth.sh\""" via-env
+auth-user-pass-verify "\"/opt/vpnpanel/b-agent/auth.sh\"" via-env
 client-connect "\"/opt/vpnpanel/b-agent/up.sh\""
 client-disconnect "\"/opt/vpnpanel/b-agent/down.sh\""
 
