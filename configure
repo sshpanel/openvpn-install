@@ -2,10 +2,10 @@
 # SSHPANEL HELPERS CONFIGURATION SCRIPTS
 # Author: Rizal Fakhri <rizal@codehub.id>
 
-. $HOME/sshpanel-bundle/support/app-check.sh
-. $HOME/sshpanel-bundle/support/os-detector.sh
-. $HOME/sshpanel-bundle/support/string-helper.sh
-. $HOME/sshpanel-bundle/support/welcome-screen.sh
+. `pwd`/support/app-check.sh
+. `pwd`/support/os-detector.sh
+. `pwd`/support/string-helper.sh
+. `pwd`/support/welcome-screen.sh
 
 __LSB__=`$(lsb_release -i -s) | awk '{print tolower($0)}'`
 __DIST__=$(echo ${__LSB__})
@@ -15,7 +15,7 @@ while :
 	do
 		clear
 		display_sshpanel_screen
-		
+
 		echo
 		info "What do you want to do?"
 		echo "   1) Install OpenVPN"
@@ -26,9 +26,9 @@ while :
 		echo "   6) Exit"
 		read -p "Select an option [1-6]: " option
 		case $option in
-			1) 
+			1)
 			bash services/openvpn/openvpn-install.sh
-			
+
 			bash misc/copyright.sh
 			space
 			enter
@@ -39,10 +39,10 @@ while :
 
 			bash misc/copyright.sh
 			space
-			enter 
+			enter
 
 			;;
-			3) 
+			3)
 			bash services/squid/squid-install.sh
 
 			bash misc/copyright.sh
@@ -52,7 +52,7 @@ while :
 			;;
 			4)
 			bash services/badvpn-udpgw/badvpn-install.sh
-			
+
 			bash misc/copyright.sh
 			space
 			enter
@@ -60,11 +60,11 @@ while :
 
 			5)
 			bash services/webmin/webmin-install.sh
-			
+
 			bash misc/copyright.sh
 			space
 			;;
-			6) 
+			6)
 			danger "Aborting!"
 			exit
 			;;
