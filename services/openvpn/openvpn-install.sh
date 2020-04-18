@@ -5,10 +5,10 @@
 # Copyright (c) 2013 Nyr. Released under the MIT License.
 # Modified by: SSH Panel <sshpanel0071@gmail.com>
 
-. $HOME/sshpanel-bundle/support/app-check.sh
-. $HOME/sshpanel-bundle/support/os-detector.sh
-. $HOME/sshpanel-bundle/support/string-helper.sh
-. $HOME/sshpanel-bundle/support/welcome-screen.sh
+. `pwd`/support/app-check.sh
+. `pwd`/support/os-detector.sh
+. `pwd`/support/string-helper.sh
+. `pwd`/support/welcome-screen.sh
 
 
 # Detect Debian users running the script with "sh" instead of bash
@@ -59,11 +59,11 @@ newclient () {
 	echo "</tls-auth>" >> ~/$1.ovpn
 }
 
-if [[ ! -e /opt/vpnpanel/b-agent/auth.sh ]] ; then 
+if [[ ! -e /opt/vpnpanel/b-agent/auth.sh ]] ; then
 	clear
 	danger "The B-AGENT Service is not installed!"
-	info "You can install it by running command below"	
-	echo 
+	info "You can install it by running command below"
+	echo
 	echo "------"
 	text_info "cd ~; git clone https://github.com/sshpanel/helpers.git"
 	text_info "cd helpers"
@@ -86,7 +86,7 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 		echo "   4) Exit"
 		read -p "Select an option [1-4]: " option
 		case $option in
-			1) 
+			1)
 			echo
 			info "Tell me a name for the client certificate."
 			warning "Please, use one word only, no special characters."
@@ -138,7 +138,7 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 			fi
 			exit
 			;;
-			3) 
+			3)
 			echo
 			read -p "Do you really want to remove OpenVPN? [y/N]: " -e REMOVE
 			if [[ "$REMOVE" = 'y' || "$REMOVE" = 'Y' ]]; then
@@ -213,10 +213,10 @@ else
 	echo "   2) TCP"
 	read -p "Protocol [1-2]: " -e -i 1 PROTOCOL
 	case $PROTOCOL in
-		1) 
+		1)
 		PROTOCOL=udp
 		;;
-		2) 
+		2)
 		PROTOCOL=tcp
 		;;
 	esac
@@ -272,7 +272,7 @@ else
 
 	if [ -f /usr/lib/openvpn/openvpn-plugin-auth-pam.so ]; then
 		PAM_PLUGIN="openvpn-plugin-auth-pam.so"
-	else 
+	else
 		PAM_PLUGIN="openvpn-auth-pam.so"
 	fi
 
@@ -417,7 +417,7 @@ exit 0' > $RCLOCAL
 
 	if [ -f /usr/lib/openvpn/openvpn-plugin-auth-pam.so ]; then
 		PAM_PLUGIN="openvpn-plugin-auth-pam.so"
-	else 
+	else
 		PAM_PLUGIN="openvpn-auth-pam.so"
 	fi
 

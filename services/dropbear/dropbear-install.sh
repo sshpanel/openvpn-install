@@ -1,10 +1,10 @@
 #!/bin/bash
 # Autoscript dropbear by: VPN Panel & SSH Panel.
 
-. $HOME/sshpanel-bundle/support/app-check.sh
-. $HOME/sshpanel-bundle/support/os-detector.sh
-. $HOME/sshpanel-bundle/support/string-helper.sh
-. $HOME/sshpanel-bundle/support/welcome-screen.sh
+. `pwd`/support/app-check.sh
+. `pwd`/support/os-detector.sh
+. `pwd`/support/string-helper.sh
+. `pwd`/support/welcome-screen.sh
 
 
 # Detect Debian users running the script with "sh" instead of bash
